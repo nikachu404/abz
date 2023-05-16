@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bulma/css/bulma.css';
 import { useAppDispatch } from '../../redux/hooks';
 import { InputField } from '../InputField/InputField';
 import { setApiUrl } from '../../redux/slices/apiUrlSlice';
@@ -8,8 +9,8 @@ import {
   validateEmail,
   registerUser,
 } from '../../helpers/';
+import { INITIAL_API_URL } from '../constants';
 
-import 'bulma/css/bulma.css';
 import './Registration.scss';
 
 const positions = [
@@ -113,7 +114,7 @@ export const Registration: React.FC = () => {
       dispatch(
         setApiUrl({
           apiUrl: {
-            url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6',
+            url: INITIAL_API_URL,
           },
         }),
       );

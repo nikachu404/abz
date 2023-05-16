@@ -5,11 +5,9 @@ import { selectApiUrl, setApiUrl } from '../../redux/slices/apiUrlSlice';
 import { User } from '../../types/User';
 import { ApiResponse } from '../../types/ApiResponse';
 import { UserCard } from '../UserCard/UserCard';
+import { INITIAL_API_URL } from '../constants';
 
 import './Users.scss';
-
-const initialApiUrl =
-  'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6';
 
 export const Users: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -20,8 +18,8 @@ export const Users: React.FC = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(true);
 
   useEffect(() => {
-    if (apiUrl.url !== initialApiUrl) {
-      dispatch(setApiUrl({ apiUrl: { url: initialApiUrl } }));
+    if (apiUrl.url !== INITIAL_API_URL) {
+      dispatch(setApiUrl({ apiUrl: { url: INITIAL_API_URL } }));
     }
   }, []);
 
@@ -36,7 +34,7 @@ export const Users: React.FC = () => {
             setIsButtonVisible(false);
           }
 
-          if (apiUrl.url !== initialApiUrl) {
+          if (apiUrl.url !== INITIAL_API_URL) {
             setVisibleUsers(prevUsers => [...prevUsers, ...res.users]);
           } else {
             setVisibleUsers(res.users);

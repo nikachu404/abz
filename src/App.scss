@@ -1,16 +1,12 @@
 @import './styles/utils/_colors.scss';
 
 .App {
-  font-family: 'Nunito', sans-serif;
-
   &__content {
     display: flex;
     flex-direction: column;
     gap: 140px;
 
     padding-bottom: 100px;
-
-    font-family: 'Nunito', sans-serif;
 
     background-color: #f8f8f8;
   }
