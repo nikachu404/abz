@@ -4,7 +4,7 @@
 - [✨DEMO✨](https://nikachu404.github.io/abz/)
 - [✏️TASK✏️](https://drive.google.com/file/d/11XPGP9wrHB-B5aLlBCRLXHVA2yvM2QhY/view)
 
-<h2 align="center">Technologies used</h2>
+<h2 align="center">🧙‍♂️Technologies used🧙‍♂️</h2>
 
  - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
  - ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
@@ -15,6 +15,12 @@
  - ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
  - ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
  - ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+
+
+<h2 align="center">🧚‍♀️Additionl technologies🧚‍♀️</h2>
+
+- Prettier
+- Squoosh
  
  <h2 align="center">📋About📋</h2>
 
