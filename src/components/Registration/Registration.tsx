@@ -74,6 +74,33 @@ export const Registration: React.FC = () => {
     }));
   };
 
+  function handlePositionChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const selectedPosition = positions.find(pos => pos.id === event.target.id);
+    if (selectedPosition) {
+      setState(prevState => ({
+        ...prevState,
+        position: selectedPosition.label,
+        positionId: selectedPosition.id,
+      }));
+    }
+  }
+
+  function handlePhotoInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      setState(prevState => ({
+        ...prevState,
+        photo: selectedFile,
+      }));
+    }
+    if (selectedFile?.name) {
+      setState(prevState => ({
+        ...prevState,
+        photoName: selectedFile.name,
+      }));
+    }
+  }
+
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -158,18 +185,7 @@ export const Registration: React.FC = () => {
                     <input
                       id={id}
                       type="radio"
-                      onChange={event => {
-                        const selectedPosition = positions.find(
-                          pos => pos.id === event.target.id,
-                        );
-                        if (selectedPosition) {
-                          setState(prevState => ({
-                            ...prevState,
-                            position: selectedPosition.label,
-                            positionId: selectedPosition.id,
-                          }));
-                        }
-                      }}
+                      onChange={handlePositionChange}
                       checked={position === name}
                       name={name}
                       className="registration__radiobutton"
@@ -188,21 +204,7 @@ export const Registration: React.FC = () => {
                     type="file"
                     accept="image/*"
                     name="photo"
-                    onChange={event => {
-                      const selectedFile = event.target.files?.[0];
-                      if (selectedFile) {
-                        setState(prevState => ({
-                          ...prevState,
-                          photo: selectedFile,
-                        }));
-                      }
-                      if (selectedFile?.name) {
-                        setState(prevState => ({
-                          ...prevState,
-                          photoName: selectedFile.name,
-                        }));
-                      }
-                    }}
+                    onChange={handlePhotoInputChange}
                   />
                   <span className="file-cta">
                     <i className="fas fa-upload" />
