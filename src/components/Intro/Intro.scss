@@ -1,0 +1,66 @@
+@import '../../styles/utils/mixins';
+
+.intro {
+  @include onDesktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+
+    height: 500px;
+    padding: 16px;
+
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/intro.jpg');
+
+    @include onDesktop {
+      height: 650px;
+      width: 1170px;
+    }
+  }
+
+  &__preamble {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    max-width: 380px;
+  }
+
+  &__main-text {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  &__second-text {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+  &__button {
+    height: 34px;
+    width: 100px;
+  }
+}

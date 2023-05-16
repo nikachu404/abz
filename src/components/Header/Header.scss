@@ -1,0 +1,41 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/blocks/button.scss';
+
+.header {
+  width: 100%;
+
+  background-color: #fff;
+
+  @include onDesktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 16px;
+
+    @include onDesktop {
+      width: 1170px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    height: 34px;
+    width: 100px;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 10px;
+  }
+}
