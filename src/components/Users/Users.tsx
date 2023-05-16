@@ -42,7 +42,6 @@ export const Users: React.FC = () => {
         setIsLoading(false);
       })
       .catch(() => setIsLoading(false))
-      .finally()
   }, [apiUrl]);
 
   const loadMoreUsers = () => {
