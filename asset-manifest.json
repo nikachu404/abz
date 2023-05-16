@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/abz/static/css/main.905b2aff.css",
+    "main.js": "/abz/static/js/main.6e423105.js",
+    "static/media/success-image.svg": "/abz/static/media/success-image.147ff01aeb0caaca03a3.svg",
+    "index.html": "/abz/index.html",
+    "main.905b2aff.css.map": "/abz/static/css/main.905b2aff.css.map",
+    "main.6e423105.js.map": "/abz/static/js/main.6e423105.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.905b2aff.css",
+    "static/js/main.6e423105.js"
+  ]
+}
