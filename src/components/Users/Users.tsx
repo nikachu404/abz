@@ -52,7 +52,6 @@ export const Users: React.FC = () => {
         .then(res => res.json())
         .then((res: ApiResponse) => {
           dispatch(setApiUrl({ apiUrl: { url: res.links.next_url } }));
-          console.log(res.links.next_url);
           setIsLoading(false);
         })
         .catch(() => setIsLoading(false));
