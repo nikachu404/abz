@@ -1,2 +1,2 @@
-export const validateName = (name: string) => (
-  name.length < 60 && name.length > 2);
+export const validateName = (name: string) =>
+  name.length < 60 && name.length > 2;

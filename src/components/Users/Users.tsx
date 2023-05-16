@@ -8,7 +8,8 @@ import { UserCard } from '../UserCard/UserCard';
 
 import './Users.scss';
 
-const initialApiUrl = 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6';
+const initialApiUrl =
+  'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6';
 
 export const Users: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -27,22 +28,22 @@ export const Users: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    apiUrl.url && fetch(apiUrl.url)
-      .then(res => res.json())
-      .then((res: ApiResponse) => {
-        if (!res.links.next_url) {
-          setIsButtonVisible(false);
-        }
+    apiUrl.url &&
+      fetch(apiUrl.url)
+        .then(res => res.json())
+        .then((res: ApiResponse) => {
+          if (!res.links.next_url) {
+            setIsButtonVisible(false);
+          }
 
-        if (apiUrl.url !== initialApiUrl) {
-          setVisibleUsers(prevUsers => [...prevUsers, ...res.users]);
-        } else {
-          setVisibleUsers(res.users);
-        }
-        setIsLoading(false);
-      })
-      .catch(() => setIsLoading(false))
-      .finally()
+          if (apiUrl.url !== initialApiUrl) {
+            setVisibleUsers(prevUsers => [...prevUsers, ...res.users]);
+          } else {
+            setVisibleUsers(res.users);
+          }
+          setIsLoading(false);
+        })
+        .catch(() => setIsLoading(false));
   }, [apiUrl]);
 
   const loadMoreUsers = () => {
@@ -53,7 +54,6 @@ export const Users: React.FC = () => {
         .then(res => res.json())
         .then((res: ApiResponse) => {
           dispatch(setApiUrl({ apiUrl: { url: res.links.next_url } }));
-          console.log(res.links.next_url);
           setIsLoading(false);
         })
         .catch(() => setIsLoading(false));
@@ -69,13 +69,12 @@ export const Users: React.FC = () => {
           <h1 className="registration__title">Working with GET request</h1>
 
           <div className="users__list">
-            {visibleUsers && visibleUsers.map(user => (
-              <UserCard user={user} key={user.id} />
-            ))}
+            {visibleUsers &&
+              visibleUsers.map(user => <UserCard user={user} key={user.id} />)}
           </div>
 
-          {isLoading
-            ? (<TailSpin
+          {isLoading ? (
+            <TailSpin
               height="80"
               width="80"
               color="#00BDD3"
@@ -84,15 +83,16 @@ export const Users: React.FC = () => {
               wrapperStyle={{}}
               wrapperClass=""
               visible={true}
-            />)
-            : isButtonVisible && (
+            />
+          ) : (
+            isButtonVisible && (
               <button
                 className="button-template users__button"
-                onClick={loadMoreUsers}
-              >
+                onClick={loadMoreUsers}>
                 Show more
               </button>
-            )}
+            )
+          )}
         </div>
       </div>
     </section>

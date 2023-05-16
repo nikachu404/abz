@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField } from "@mui/material";
+import { TextField } from '@mui/material';
 import './InputField.scss';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   helperText?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur: () => void;
-}
+};
 
 export const InputField: React.FC<Props> = ({
   label,
@@ -31,7 +31,9 @@ export const InputField: React.FC<Props> = ({
       error={isTouched && !isValid}
       id="outlined-required"
       label={label}
-      helperText={helperText ? helperText : isTouched && !isValid ? errorMessage : ''}
+      helperText={
+        helperText ? helperText : isTouched && !isValid ? errorMessage : ''
+      }
       onChange={onChange}
     />
   );

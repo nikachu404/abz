@@ -20,17 +20,17 @@
     justify-content: center;
     gap: 20px;
     grid-template-columns: repeat(1, 328px);
-  
+
     @include onTablet {
       gap: 16px;
       grid-template-columns: repeat(2, 344px);
     }
-  
+
     @include onDesktop {
       gap: 29px;
       grid-template-columns: repeat(3, 282px);
     }
-  
+
     @include onDesktopLarge {
       gap: 29px;
       grid-template-columns: repeat(3, 370px);

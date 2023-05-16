@@ -12,14 +12,16 @@ export const Intro: React.FC = () => {
             </h1>
 
             <h2 className="intro__second-text">
-              What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they&apos;ll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.
+              What defines a good front-end developer is one that has skilled
+              knowledge of HTML, CSS, JS with a vast understanding of User
+              design thinking as they&apos;ll be building web interfaces with
+              accessibility in mind. They should also be excited to learn, as
+              the world of Front-End Development keeps evolving.
             </h2>
           </div>
 
           <a href="#sign-up" className="intro__link">
-            <button className="button-template intro__button" >
-              Sign up
-            </button>
+            <button className="button-template intro__button">Sign up</button>
           </a>
         </div>
       </div>
