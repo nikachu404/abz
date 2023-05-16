@@ -1,5 +1,4 @@
 import React from 'react';
-import logoCat from '../../assets/Logo.svg';
 import './Header.scss';
 
 export const Header: React.FC = () => {
@@ -9,7 +8,7 @@ export const Header: React.FC = () => {
         <div className="header__content">
           <a href="/" className="header__logo">
             <img
-              src={logoCat}
+              src="https://raw.githubusercontent.com/nikachu404/abz/main/src/assets/Logo.svg"
               alt="cat logo"
               className="header__image"
             />
