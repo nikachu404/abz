@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
         <div className="header__content">
           <a href="/" className="header__logo">
             <img
-              src="https://raw.githubusercontent.com/nikachu404/abz/main/src/assets/Logo.webp"
+              src="https://raw.githubusercontent.com/nikachu404/abz/main/src/assets/Logo.svg"
               alt="cat logo"
               className="header__image"
             />
