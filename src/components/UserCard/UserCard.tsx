@@ -16,33 +16,41 @@ export const UserCard: React.FC<Props> = ({ user }) => {
     <div className="user-card">
       <img src={photo} alt={name} className="user-card__photo" />
 
-      <div
-        className="user-card__name truncate"
-        data-tooltip-id="my-tooltip"
-        data-tooltip-content={name}>
-        {name}
+      <div className="user-card__name truncate">
+        <span
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content={name}
+          className="user-card__tooltip">
+          {name}
+        </span>
       </div>
 
       <div className="user-card__description">
-        <div
-          className="user-card__position truncate"
-          data-tooltip-id="my-tooltip"
-          data-tooltip-content={position}>
-          {position}
+        <div className="user-card__position truncate">
+          <span
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={position}
+            className="user-card__tooltip">
+            {position}
+          </span>
         </div>
 
-        <div
-          className="user-card__email truncate"
-          data-tooltip-id="my-tooltip"
-          data-tooltip-content={email}>
-          {email}
+        <div className="user-card__email truncate">
+          <span
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={email}
+            className="user-card__tooltip">
+            {email}
+          </span>
         </div>
 
-        <div
-          className="user-card__phone truncate"
-          data-tooltip-id="my-tooltip"
-          data-tooltip-content={phone}>
-          {phone}
+        <div className="user-card__phone truncate">
+          <span
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={phone}
+            className="user-card__tooltip">
+            {phone}
+          </span>
         </div>
       </div>
 

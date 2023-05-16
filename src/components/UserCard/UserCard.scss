@@ -17,6 +17,10 @@
     border-radius: 50%;
   }
 
+  &__tooltip {
+    cursor: pointer;
+  }
+
   &__name {
     font-family: 'Nunito';
     font-style: normal;
@@ -27,8 +31,6 @@
     text-align: center;
 
     color: rgba(0, 0, 0, 0.87);
-
-    cursor: pointer;
   }
 
   &__description {
@@ -39,8 +41,6 @@
     width: 100%;
 
     text-align: center;
-
-    cursor: pointer;
   }
 }
 

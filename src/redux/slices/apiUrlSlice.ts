@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
+import { INITIAL_API_URL } from '../../components/constants';
 
 interface apiUrlState {
   apiUrl: { url: string | null };
@@ -7,7 +8,7 @@ interface apiUrlState {
 
 const initialState: apiUrlState = {
   apiUrl: {
-    url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6',
+    url: INITIAL_API_URL,
   },
 };
 
