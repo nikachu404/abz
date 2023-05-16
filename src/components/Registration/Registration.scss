@@ -59,7 +59,7 @@
     margin-right: 12px;
 
     border-radius: 50%;
-    border: 1px solid #D0CFCF;
+    border: 1px solid #d0cfcf;
     transition: border-color 0.3s;
 
     cursor: pointer;
@@ -68,16 +68,16 @@
       display: grid;
       place-content: center;
 
-      border-color: #00BDD3;
+      border-color: #00bdd3;
     }
 
     &::before {
-      content: "";
+      content: '';
       width: 10px;
       height: 10px;
       border-radius: 50%;
       transition: 120ms transform ease-in-out;
-      box-shadow: inset 1em 1em #00BDD3;
+      box-shadow: inset 1em 1em #00bdd3;
     }
   }
 
@@ -106,7 +106,7 @@
     font-size: 12px;
     line-height: 14px;
 
-    color: #7E7E7E;
+    color: #7e7e7e;
   }
 
   &__position-title {
@@ -170,10 +170,10 @@
     height: 100% !important;
     padding: 14px 16px !important;
 
-    border: 1px solid #D0CFCF !important;
+    border: 1px solid #d0cfcf !important;
     border-radius: 4 4px 4px 0 !important;
 
-    color: #7E7E7E;
+    color: #7e7e7e;
 
     @include onTablet {
       width: 297px;
@@ -217,10 +217,10 @@
     height: 100% !important;
     padding: 14px 16px !important;
 
-    border: 1px solid #D0CFCF !important;
+    border: 1px solid #d0cfcf !important;
     border-radius: 4 4px 4px 0 !important;
 
-    color: #7E7E7E;
+    color: #7e7e7e;
 
     @include onTablet {
       width: 297px;
@@ -234,7 +234,7 @@
   }
 }
 
-input[type="radio"] {
+input[type='radio'] {
   position: relative;
 
   height: 20px;

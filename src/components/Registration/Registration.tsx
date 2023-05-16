@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
 import { InputField } from '../InputField/InputField';
 import { setApiUrl } from '../../redux/slices/apiUrlSlice';
-import { validateName, validatePhone, validateEmail, registerUser } from '../../helpers/';
+import {
+  validateName,
+  validatePhone,
+  validateEmail,
+  registerUser,
+} from '../../helpers/';
 
 import 'bulma/css/bulma.css';
 import './Registration.scss';
@@ -30,7 +35,16 @@ export const Registration: React.FC = () => {
   const [isRegistrationSuccess, seIsRegistrationSuccess] = useState(false);
   const [isRegistrationError, seIsRegistrationError] = useState(false);
 
-  const { position, photoName, isTouchedInputs, positionId, name, email, phone, photo } = state;
+  const {
+    position,
+    photoName,
+    isTouchedInputs,
+    positionId,
+    name,
+    email,
+    phone,
+    photo,
+  } = state;
 
   const dispatch = useAppDispatch();
 
@@ -38,18 +52,26 @@ export const Registration: React.FC = () => {
   const isEmailCorrect = validateEmail(email);
   const isPhoneCorrect = validatePhone(phone);
 
-  const isSubmitButtonEnabled = isNameCorrect && isEmailCorrect && isPhoneCorrect && positionId && photo;
+  const isSubmitButtonEnabled =
+    isNameCorrect && isEmailCorrect && isPhoneCorrect && positionId && photo;
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, key: keyof typeof initialState, id?: string) => {
-    setState((prevState) => ({ ...prevState, [key]: event.target.value }));
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    key: keyof typeof initialState,
+    id?: string,
+  ) => {
+    setState(prevState => ({ ...prevState, [key]: event.target.value }));
 
     if (id) {
-      setState((prevState) => ({ ...prevState, positionId: id }));
+      setState(prevState => ({ ...prevState, positionId: id }));
     }
   };
 
   const handleBlur = (key: string) => {
-    setState((prevState) => ({ ...prevState, isTouchedInputs: { ...prevState.isTouchedInputs, [key]: true } }));
+    setState(prevState => ({
+      ...prevState,
+      isTouchedInputs: { ...prevState.isTouchedInputs, [key]: true },
+    }));
   };
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -61,7 +83,13 @@ export const Registration: React.FC = () => {
 
     try {
       await registerUser(positionId, name, email, phone, photo);
-      dispatch(setApiUrl({ apiUrl: { url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6' } }));
+      dispatch(
+        setApiUrl({
+          apiUrl: {
+            url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6',
+          },
+        }),
+      );
       seIsRegistrationSuccess(true);
       setTimeout(() => seIsRegistrationSuccess(false), 3000);
       seIsRegistrationError(false);
@@ -73,13 +101,15 @@ export const Registration: React.FC = () => {
 
   const clearForm = () => {
     setState(initialState);
-  }
+  };
 
   return (
     <div className="registration" id="sign-up">
       <div className="registration__content">
         <h1 className="registration__title">
-          {isRegistrationSuccess ? 'User successfully registered' : ' Working with POST request'}
+          {isRegistrationSuccess
+            ? 'User successfully registered'
+            : ' Working with POST request'}
         </h1>
 
         {isRegistrationSuccess ? (
@@ -93,7 +123,7 @@ export const Registration: React.FC = () => {
                 isTouched={isTouchedInputs.name}
                 isValid={isNameCorrect}
                 errorMessage="Please enter a valid name"
-                onChange={(event) => handleInputChange(event, 'name')}
+                onChange={event => handleInputChange(event, 'name')}
                 onBlur={() => handleBlur('name')}
               />
 
@@ -103,7 +133,7 @@ export const Registration: React.FC = () => {
                 isTouched={isTouchedInputs.email}
                 isValid={isEmailCorrect}
                 errorMessage="Please enter a valid email"
-                onChange={(event) => handleInputChange(event, 'email')}
+                onChange={event => handleInputChange(event, 'email')}
                 onBlur={() => handleBlur('email')}
               />
 
@@ -112,24 +142,28 @@ export const Registration: React.FC = () => {
                 value={phone}
                 isTouched={isTouchedInputs.phone}
                 isValid={isPhoneCorrect}
-                onChange={(event) => handleInputChange(event, 'phone')}
+                onChange={event => handleInputChange(event, 'phone')}
                 onBlur={() => handleBlur('phone')}
                 helperText="+38 (XXX) XXX - XX - XX"
               />
             </div>
 
             <div className="registration__position">
-              <p className="registration__position-title">Select your position</p>
+              <p className="registration__position-title">
+                Select your position
+              </p>
               <div className="registration__position-options">
                 {positions.map(({ id, name, label }) => (
                   <label key={id} className="registration__radio-label">
                     <input
                       id={id}
                       type="radio"
-                      onChange={(event) => {
-                        const selectedPosition = positions.find((pos) => pos.id === event.target.id);
+                      onChange={event => {
+                        const selectedPosition = positions.find(
+                          pos => pos.id === event.target.id,
+                        );
                         if (selectedPosition) {
-                          setState((prevState) => ({
+                          setState(prevState => ({
                             ...prevState,
                             position: selectedPosition.label,
                             positionId: selectedPosition.id,
@@ -154,25 +188,27 @@ export const Registration: React.FC = () => {
                     type="file"
                     accept="image/*"
                     name="photo"
-                    onChange={(event) => {
+                    onChange={event => {
                       const selectedFile = event.target.files?.[0];
                       if (selectedFile) {
-                        setState((prevState) => ({ ...prevState, photo: selectedFile }));
+                        setState(prevState => ({
+                          ...prevState,
+                          photo: selectedFile,
+                        }));
                       }
                       if (selectedFile?.name) {
-                        setState((prevState) => ({ ...prevState, photoName: selectedFile.name }));
+                        setState(prevState => ({
+                          ...prevState,
+                          photoName: selectedFile.name,
+                        }));
                       }
                     }}
                   />
                   <span className="file-cta">
                     <i className="fas fa-upload" />
-                    <div className="file-label">
-                      Upload
-                    </div>
+                    <div className="file-label">Upload</div>
                   </span>
-                  <div className="file-name">
-                    {photoName}
-                  </div>
+                  <div className="file-name">{photoName}</div>
                 </label>
               </div>
             </div>
@@ -181,13 +217,14 @@ export const Registration: React.FC = () => {
               <button
                 type="submit"
                 className="button-template registration__button"
-                disabled={!isSubmitButtonEnabled}
-              >
+                disabled={!isSubmitButtonEnabled}>
                 Sign up
               </button>
 
               {isRegistrationError && (
-                <h2 className="registration__error">Something went wrong. Please, try again.</h2>
+                <h2 className="registration__error">
+                  Something went wrong. Please, try again.
+                </h2>
               )}
             </div>
           </form>

@@ -20,7 +20,9 @@ export const Header: React.FC = () => {
             </a>
 
             <a href="#sign-up" className="header__nav-link">
-              <button className="button-template header__button">Sign up</button>
+              <button className="button-template header__button">
+                Sign up
+              </button>
             </a>
           </div>
         </div>

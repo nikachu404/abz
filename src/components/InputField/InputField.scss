@@ -5,7 +5,7 @@
   width: 328px;
   height: 54px;
 
-  border: 1px solid #D0CFCF;
+  border: 1px solid #d0cfcf;
   border-radius: 4px;
 
   font-family: 'Nunito';
@@ -16,7 +16,7 @@
   color: rgba(0, 0, 0, 0.87);
 
   &::placeholder {
-    color: #7E7E7E;
+    color: #7e7e7e;
   }
 
   @include onTablet {

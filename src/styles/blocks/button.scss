@@ -18,12 +18,12 @@
   cursor: pointer;
 
   &:hover {
-    background: #FFE302;
+    background: #ffe302;
   }
 
   &:disabled {
     cursor: not-allowed;
-    background: #B4B4B4;
+    background: #b4b4b4;
     color: rgba(255, 255, 255, 0.87);
   }
 }
