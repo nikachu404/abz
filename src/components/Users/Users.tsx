@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { selectApiUrl, setApiUrl } from '../../redux/slices/apiUrlSlice';
+import { setApiUrl, selectApiUrl } from '../../redux/slices/apiUrl';
 import { User } from '../../types/User';
 import { ApiResponse } from '../../types/ApiResponse';
 import { UserCard } from '../UserCard/UserCard';

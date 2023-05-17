@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { apiUrlReducer } from './slices/apiUrlSlice';
+import { apiUrlReducer } from './slices/apiUrl';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
