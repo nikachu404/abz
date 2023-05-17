@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { getToken } from './getToken';
 
 export const registerUser = async (
@@ -14,17 +15,14 @@ export const registerUser = async (
   formData.append('phone', phone);
   formData.append('photo', photo);
 
-  const response = await fetch(
+  const response = await axios.post(
     'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-    {
-      method: 'POST',
-      body: formData,
-      headers: { Token: await getToken() },
-    },
+    formData,
+    { headers: { Token: await getToken() } },
   );
 
   if (response.status >= 200 && response.status < 300) {
-    return response.json();
+    return response.data;
   } else {
     throw new Error('Registration failed');
   }

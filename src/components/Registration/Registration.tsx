@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import { useAppDispatch } from '../../redux/hooks';
 import { InputField } from '../InputField/InputField';
-import { setApiUrl } from '../../redux/slices/apiUrlSlice';
+import { setApiUrl } from '../../redux/slices/apiUrl';
 import {
   validateName,
   validatePhone,

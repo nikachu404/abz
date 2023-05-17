@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { TailSpin } from 'react-loader-spinner';
+import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { selectApiUrl, setApiUrl } from '../../redux/slices/apiUrlSlice';
+import { setApiUrl, selectApiUrl } from '../../redux/slices/apiUrl';
 import { User } from '../../types/User';
 import { ApiResponse } from '../../types/ApiResponse';
 import { UserCard } from '../UserCard/UserCard';
@@ -24,37 +25,48 @@ export const Users: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
+    const fetchData = async () => {
+      setIsLoading(true);
 
-    apiUrl.url &&
-      fetch(apiUrl.url)
-        .then(res => res.json())
-        .then((res: ApiResponse) => {
-          if (!res.links.next_url) {
+      try {
+        if (apiUrl.url) {
+          const res = await axios.get(apiUrl.url);
+          const data: ApiResponse = res.data;
+
+          if (!data.links.next_url) {
             setIsButtonVisible(false);
           }
 
           if (apiUrl.url !== INITIAL_API_URL) {
-            setVisibleUsers(prevUsers => [...prevUsers, ...res.users]);
+            setVisibleUsers(prevUsers => [...prevUsers, ...data.users]);
           } else {
-            setVisibleUsers(res.users);
+            setVisibleUsers(data.users);
           }
-          setIsLoading(false);
-        })
-        .catch(() => setIsLoading(false));
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
+      setIsLoading(false);
+    };
+
+    if (apiUrl.url) {
+      fetchData();
+    }
   }, [apiUrl]);
 
-  const loadMoreUsers = () => {
+  const loadMoreUsers = async () => {
     if (apiUrl.url) {
       setIsLoading(true);
 
-      fetch(apiUrl.url)
-        .then(res => res.json())
-        .then((res: ApiResponse) => {
-          dispatch(setApiUrl({ apiUrl: { url: res.links.next_url } }));
-          setIsLoading(false);
-        })
-        .catch(() => setIsLoading(false));
+      try {
+        const res = await axios.get(apiUrl.url);
+        const data: ApiResponse = res.data;
+
+        dispatch(setApiUrl({ apiUrl: { url: data.links.next_url } }));
+      } catch (error) {
+        console.error(error);
+      }
 
       setIsLoading(false);
     }
