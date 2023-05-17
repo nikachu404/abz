@@ -19,6 +19,7 @@
 
 <h2 align="center">🧚‍♀️Additionl technologies🧚‍♀️</h2>
 
+- axios
 - Prettier
 - Squoosh
  
